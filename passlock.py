@@ -19,7 +19,7 @@ class User:
         A method that saves a new user instace into the user list
         """
         User.user_list.append(self)
-        
+
 
     @classmethod
     def display_user(cls):
@@ -91,7 +91,7 @@ class Credentials():
         """
         return cls.credentials_list
 
-    def generatePassword(self,stringLength=8):
+    def generatePassword(stringLength=8):
         """Generate a random password string of letters and digits and special characters"""
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
         
