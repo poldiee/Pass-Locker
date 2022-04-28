@@ -37,6 +37,7 @@ The user would like to.... :
 
         $ chmod +x interface.py
         $ ./interface.py
+         $ python3 passlock_test.py *test for app
 ## Behaviour Driven Development
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
