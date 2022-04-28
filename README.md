@@ -19,14 +19,14 @@ The user would like to.... :
 ## Installation / Setup instruction
 
 ### The application requires the following installations to operate 
-* python3.6
+* python3
 * pyperclip
 * pip
 
 #### clone
 * Open Terminal {Ctrl+Alt+T}
 
-* git clone ``````
+* git clone ```https://github.com/poldiee/Pass-Locker.git```
 
 * cd Pass-Locker
 
