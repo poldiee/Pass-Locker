@@ -15,7 +15,7 @@ This project is a python application that manages login and signup credentials o
 * pyperclip
 * pip
 
-
+#### clone
 * Open Terminal {Ctrl+Alt+T}
 
 * git clone ``````
