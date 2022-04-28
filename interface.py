@@ -1,13 +1,13 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3.8
 from passlock import User, Credentials
 
 def function():
-	print("                                  __    __   __  ")
-	print("                                 |  |  |  | |  | ")
-	print("                                 |  |__|  | |  | ")
-	print("                                 |   __   | |  | ")
-	print("                                 |  |  |  | |  | ")
-	print("                                 |__|  |__| |__| ")
+	print("                          __    __   __  ")
+	print("                         |  |  |  | |  | ")
+	print("                         |  |__|  | |  | ")
+	print("                         |   __   | |  | ")
+	print("                         |  |  |  | |  | ")
+	print("                         |__|  |__| |__| ")
 function()
 
 def create_new_user(username,password):
@@ -40,15 +40,38 @@ def create_new_credential(account,userName,password):
     """
     new_credential = Credentials(account,userName,password)
     return new_credential
-def save_credentials(lock):
+def save_credentials(credentials):
     """
-    Function to save Credentials
+    Function to save Credentials to credential list
     """
-    lock.save_account()
+    credentials. save_details()
+def display_accounts_details():
+    """
+    Function that returns all the saved credential.
+    """
+    return Credentials.display_credentials()
+
+def del_credential(credentials):
+    """
+    Function to delete a Credentials from credentials list
+    """
+    credentials.delete_credentials()
+
+def find_credential(account):
+    """
+    Function that finds a Credentials by an account name and returns the Credentials that belong to that account
+    """
+    return Credentials.find_credential(account)
+def check_credendtials(account):
+    """
+    Function that check if a Credentials exists with that account name and return true or false
+    """
+    return Credentials.if_credential_exist(account)
+
 
 def generate_Password():
     '''
-    generates a random password for the user.
+    generates a random password for user.
     '''
     auto_password=Credentials.generatePassword()
     return auto_password
@@ -81,9 +104,9 @@ def passlocker():
             print("what would you like to do?")
             print('\n')
     while True:
-        print("Use these short codes:\n CC - Create a new credential , DC - Display Credentials,\n FC - Find a credential,\n EX - Exit the application,\n GP - Generate A randomn password,\n D - Delete credential")
+        print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
         short_code = input().lower().strip()
-        if short_code == 'cc':
+        if short_code == "cc":
             print("Create New Credential")
             print("."*20)
             print("Account name ....")
@@ -108,6 +131,41 @@ def passlocker():
             print('\n')
             print(f"New Credential : {account} UserName: {user_Name} Password:{password} created")
             print('\n')
+        elif short_code == "dc":
+            if display_accounts_details():
+                print("Here's your list of acoount(s): ")
+
+                print('*' * 30)
+                for account in display_accounts_details():
+                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+                    print('_'* 30)
+                print('*' * 30)
+            else:
+                print("You don't have any credentials saved yet..........")
+        elif short_code == "fc":
+            print("Enter the Account Name you want to search for")
+            search_name = input().capitalize()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print(f"Account Name : {search_credential.account}")
+                print('-' * 50)
+                print(f"User Name: {search_credential.userName} Password :{search_credential.password}")
+            else:
+                print("That Credential does not exist")
+                print('\n')
+        elif short_code == "del":
+            print("Enter the account name of the Credentials you want to delete")
+            search_name = input().capitalize()
+            if check_credendtials(search_name):
+                search_credential = find_credential(search_name)
+                print(f"{search_credential.account}")
+                print("_"*30)
+                Credentials.delete_credentials()
+                print('\n')
+                print(f"New Credential : {account} UserName: {user_Name}  successfully deleted!!!")
+                print('\n')
+            else:
+                print("That Credential does not exist")
     else:
         print("Please enter a valid input 2 continue")
         
