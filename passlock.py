@@ -54,3 +54,4 @@ class Credentials():
         method to store a new credential to the credentials list
         """
         Credentials.credentials_list.append(self)
+        
