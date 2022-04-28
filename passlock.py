@@ -19,11 +19,12 @@ class User:
         A method that saves a new user instace into the user list
         """
         User.user_list.append(self)
+        
 
     @classmethod
     def display_user(cls):
         return cls.user_list
-        
+
     def delete_user(self):
         '''
         delete_account method deletes a  account from the list
